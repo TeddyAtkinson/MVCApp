@@ -2,13 +2,14 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MVCApp.Controllers
 {
+  // private static List<Vendor> vendors = new List<Vendor>();
+
   public class VendorsController : Controller
   {
-    [HttpGet("/tamas")]
+    [HttpGet("/vendors")]
     public ActionResult Index()
     {
-      List<Tama> allTamas = Tama.GetAll();
-      return View(allTamas);
+      return View();
     }
   }
 }
