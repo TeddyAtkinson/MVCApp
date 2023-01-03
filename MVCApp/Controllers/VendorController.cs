@@ -9,7 +9,8 @@ namespace MVCApp.Controllers
     [HttpGet("/Vendors")]
     public ActionResult Index()
     {
-      return View();
+      List<Vendor> allVendors = Vendor.GetAll();
+      return View(allVendors);
     }
 
     [HttpGet("/Vendors/Create")]
@@ -18,11 +19,11 @@ namespace MVCApp.Controllers
       return View();
     }
 
-    [HttpPost("/Vendors")]
-    public ActionResult Create(string name)
+    [HttpPost("/Vendor")]
+    public ActionResult Create(string name, string description)
     {
       Vendor myVendor = new Vendor(name, description);
-        return RedirectToAction("Index");
+      return RedirectToAction("Index");
     }
   }
 }
