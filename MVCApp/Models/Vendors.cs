@@ -8,6 +8,7 @@ namespace MVCApp.Models
     public string Name { get; set; }
     public string Description { get; set; }
     private static List<Vendor> _vendors = new List<Vendor> { };
+    public List<Order> Orders { get; set; }
 
     public Vendor(string name, string description)
     {
@@ -20,6 +21,16 @@ namespace MVCApp.Models
     public static List<Vendor> GetAll()
     {
       return _vendors;
+    }
+
+    public static void ClearAll()
+    {
+      _vendors.Clear();
+    }
+
+    public static Vendor Find(int searchId)
+    {
+      return _vendors[searchId - 1];
     }
   }
 }
