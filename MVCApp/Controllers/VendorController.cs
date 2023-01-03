@@ -20,21 +20,21 @@ namespace MVCApp.Controllers
       return View();
     }
 
-    [HttpPost("/Vendor")]
+    [HttpPost("/Vendors")]
     public ActionResult Create(string name, string description)
     {
       Vendor myVendor = new Vendor(name, description);
       return RedirectToAction("Index");
     }
     
-    [HttpGet("/vendors/{id}")]
+    [HttpGet("/Vendors/{id}")]
     public ActionResult Show(int id)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
       Vendor selectedVendor = Vendor.Find(id);
       List<Order> vendorOrders = selectedVendor.Orders;
-      model.Add("vendor", selectedVendor);
-      model.Add("orders", vendorOrders);
+      model.Add("Vendor", selectedVendor);
+      model.Add("Orders", vendorOrders);
       return View(model);
     }
   }
