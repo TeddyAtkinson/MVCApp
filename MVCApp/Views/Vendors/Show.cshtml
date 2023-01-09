@@ -14,10 +14,10 @@
     @foreach (Order order in @Model["orders"])
     {
       <li>
-        <h3><u>@order.Title</u></h3>
-        <h3>Date @order.Date</h3>
-        <h3>Description: @order.Description</h3>
-        <h3>Price: $@order.Price</h3>
+        <h4><u>@order.Title</u></h4>
+        <h4>Date @order.Date</h4>
+        <h4>Description: @order.Description</h4>
+        <h4>Price: $@order.Price</h4>
       </li>
     }
   </ul>
