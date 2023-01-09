@@ -1,3 +1,29 @@
 @{
   Layout = "_Layout";
 }
+
+@using MVCApp.Models;
+
+<h1>Vendor Details</h1>
+
+
+<h2>Orders for Vendor:</h2>
+
+
+  <ul>
+    @foreach (Order order in @Model["orders"])
+    {
+      <li>
+        <h3><u>@order.Title</u></h3>
+        <h3>Date @order.Date</h3>
+        <h3>Description: @order.Description</h3>
+        <h3>Price: $@order.Price</h3>
+      </li>
+    }
+  </ul>
+
+
+
+<h4></h4><a href='/vendors/@Model["vendor"].Id/orders/new'>Add new Order</a></h4><br>
+<h4><a href='/vendors'>Vendor List</a></h4><br>
+<h4><a href='/'>Return to Homepage</a></h4>
