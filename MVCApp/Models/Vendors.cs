@@ -16,7 +16,7 @@ namespace MVCApp.Models
       Description = description;
       _vendors.Add(this);
       Id = _vendors.Count;
-      
+      Orders = new List<Order> { };
     }
 
     public static List<Vendor> GetAll()
@@ -32,6 +32,11 @@ namespace MVCApp.Models
     public static Vendor Find(int searchId)
     {
       return _vendors[searchId - 1];
+    }
+
+    public void AddOrder(Order order)
+    {
+      Orders.Add(order);
     }
   }
 }
