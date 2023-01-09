@@ -37,5 +37,18 @@ namespace MVCApp.Controllers
       model.Add("Orders", vendorOrders);
       return View(model);
     }
+
+    [HttpPost("/vendors/{vendorId}/orders")]
+    public ActionResult Create(int vendorId, string orderTitle, string orderDate, string orderDescription, int orderQuantity, int orderPrice)
+    {
+      Dictionary<string, object> model = new Dictionary<string, object>();
+      Vendor foundVendor = Vendor.Find(vendorId);
+      Order newOrder = new Order(orderTitle, orderDate, orderDescription, orderQuantity, orderPrice);
+      foundVendor.AddOrder(newOrder);
+      List<Order> categoryOrders = foundVendor.Orders;
+      model.Add("orders", categoryOrders);
+      model.Add("vendor", foundVendor);
+      return View("Show", model);
+    }
   }
 }
