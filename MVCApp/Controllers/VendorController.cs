@@ -21,9 +21,9 @@ namespace MVCApp.Controllers
     }
 
     [HttpPost("/vendors")]
-    public ActionResult Create(string name, string description)
+    public ActionResult Create(string vendorName, string vendorDescription)
     {
-      Vendor myVendor = new Vendor(name, description);
+      Vendor newVendor = new Vendor(vendorName, vendorDescription);
       return RedirectToAction("Index");
     }
     
